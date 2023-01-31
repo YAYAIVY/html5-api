@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px dashed green;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <br />
+    <input type="color" id="setColor" value="#0000FF" />
+    <input type="number" id="lineWidth" value="5" />
+    <script>
+      const myCanvas = document.getElementById('myCanvas')
+      const ctx = myCanvas.getContext('2d')
+      ctx.lineCap = 'round'//lineCap:端點[butt:預設,round:圓邊,square:比預設再多出一些長度]
+      let bX = 0,
+        bY = 0
+
+      const mDown = (e) => {
+        bX = e.offsetX
+        bY = e.offsetY
+        myCanvas.addEventListener('mousemove', mMove)
+      }
+
+      const mUp = (e) => {
+        myCanvas.removeEventListener('mousemove', mMove)
+      }
+
+      const mMove = (e) => {
+        ctx.strokeStyle = setColor.value
+        ctx.lineWidth = lineWidth.value
+
+        ctx.beginPath() //重置
+        ctx.moveTo(bX, bY)
+        ctx.lineTo(e.offsetX, e.offsetY)
+        ctx.stroke()
+
+        //把目前位置當作下一條線的起始位置
+        bX = e.offsetX
+        bY = e.offsetY
+      }
+
+      myCanvas.addEventListener('mousedown', mDown)
+      window.addEventListener('mouseup', mUp)
+    </script>
+  </body>
+</html>

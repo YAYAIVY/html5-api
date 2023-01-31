@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+  canvas{
+    border:1px dotted green;
+
+  }
+
+  </style>
+</head>
+<body>
+  <canvas id="mycanvas" width="600" height="500"></canvas>
+
+  <script>
+    const mycanvas =document.querySelector('#mycanvas');
+
+    const ctx = mycanvas.getContext('2d');
+
+    ctx.beginPath();//重置線段
+    // ctx.moveTo(50, 50);
+    // ctx.lineTo(200, 300);
+    // ctx.lineTo(400, 50);
+
+    ctx.moveTo(50,50);
+    ctx.lineTo(150,300);
+    ctx.lineTo(300,150);
+    ctx.lineTo(450,300);
+    ctx.lineTo(550,50);
+
+    ctx.lineWidth = 20;
+    ctx.strokeStyle = 'orange';
+    ctx.stroke();
+  </script>
+</body>
+</html>

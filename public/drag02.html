@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rect {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: rgb(229, 231, 121);
+        border: 1px solid black;
+        left: 300px;
+      }
+      .box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(57, 67, 23);
+        border-radius: 10px ;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rect"></div>
+    <div class="box" draggable="true"></div>
+    寫上draggable才能開始拖拉功能
+    <script>
+      const box1 = document.querySelector('.box')
+      const rect1 = document.querySelector('.rect')
+
+      const handler = (event) => {
+        console.log(event.type)
+      }
+
+      box1.addEventListener('dragstart', handler)
+      box1.addEventListener('drag', handler)
+      box1.addEventListener('dragend', handler)
+
+      rect1.addEventListener('dragenter', handler)
+      //drop功能必須要dragover這裡使用.preventDefault()停止事件
+      rect1.addEventListener('dragover', (e) => {
+        e.preventDefault()
+      })
+      rect1.addEventListener('dragleave', handler)
+      rect1.addEventListener('drop', handler)
+    </script>
+  </body>
+</html>

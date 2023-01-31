@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原地切換網址列,但重整就會掛</title>
+</head>
+<body>
+  <button onclick="doPushState()">push state</button>
+只能用在同一個網址，不能加上其他的網址 
+  <script>
+    function doPushState(){
+      history.pushState({name:'fufu'},'','/12123/fufu')
+    }
+  </script>
+</body>
+</html>

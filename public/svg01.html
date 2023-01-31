@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>svg</title>
+  <style>
+    .mysvg {
+        width: 600px;
+        height: 600px;
+      }
+      .mypath2 {
+        fill: blue;
+        stroke: rgb(255, 238, 0);
+      }
+  </style>
+</head>
+<body>
+  <div class="mysvg">
+    <svg width="210mm" height="297mm" version="1.1" viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg"><g stroke-width=".26458">
+      <path class="mypath1" d="m62.097 92.258-38.374-16.021 3.379-41.447 40.462-9.5942 21.628 35.517z" fill="#f95"/>
+      <path class="mypath2" transform="translate(99 62.806)" d="m24.484 100.06-19.102-21.758-2.9422-28.804 14.791-24.891 26.485-11.699 28.243 6.375 19.311 21.573 2.6646 28.831-14.55 25.032-26.596 11.443z" fill="#00aad4"/>
+      <path class="mypath3" transform="translate(70.968 161.45)" d="m1.7742 37.968 17.099-5.2857 5.3396-17.082 10.311 14.629 17.896-0.20055-10.727 14.327 5.721 16.958-16.94-5.7744-14.361 10.681 0.25694-17.896z" fill="#fd5"/>
+     </g></svg>
+  </div>
+  <script>
+    const mypath1 = document.querySelector(".mypath2");
+    mypath1.onclick= function(event){
+      if(mypath1.classList.contains("mypath2")){
+        mypath1.classList.remove("mypath2")
+      }else{
+        mypath1.classList.add("mypath2")
+      }
+    }
+  </script>
+</body>
+</html>

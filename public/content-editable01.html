@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #info {
+        border: 1px solid gray;
+        width: 70%;
+        height: 300px;
+      }
+      #info.lightblue {
+        background-color:lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- onblur失焦情況:填寫表單欄位移至其他欄位,則原本欄位即"失焦情況" -->
+    <div
+      id="info"
+      contenteditable="true"
+      onfocus="event.target.classList.add('lightcyan')"
+      onblur="event.target.classList.remove('lightcyan')"
+      oninput="saveData(event.target.innerText)"
+    ></div>
+
+    <script>
+      //將文字暫存起來
+      const info = document.querySelector('#info')
+      function saveData(data){
+        localStorage.setItem('my-content',data);
+      }
+
+      info.innerText = localStorage.getItem('my-content')||''
+    </script>
+  </body>
+</html>
